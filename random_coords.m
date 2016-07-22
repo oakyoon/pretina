@@ -28,6 +28,7 @@ function [coords, voidmap, n] = random_coords(varargin)
 
 	voidmap = ones(mask_h, mask_w);
 	coords = zeros(n_coords, 2);
+	n = 0;
 
 	seedmat = rand(mask_h, mask_w);
 	for i = 1:n_coords

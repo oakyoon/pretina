@@ -7,5 +7,5 @@ function voidmap = postfunc_oval(voidmap, params, mx, my)
 	[radius, ratio, tilt] = parse_params(params, [], 1, 0);
 
 	[bx, by] = rotate_xy(mx, my, tilt);
-	voidmap = voidmap .* (1 - mk_shape(xy2radius(bx, by * ratio), radius));
+	voidmap = voidmap .* (1 - mk_shape(xy2ecc(bx, by * ratio), radius));
 end

@@ -20,5 +20,5 @@ function pixelmap = map_radial(varargin)
 	tilt  = parse_arg(varargin, 4, mfilename, 'tilt',  0,    {'numeric'}, {'scalar', 'real', 'finite', 'nonnan'});
 
 	[bx, by] = base_xy(cols, rows, tilt);
-	pixelmap = xy2radius(bx, by * ratio);
+	pixelmap = xy2ecc(bx, by * ratio);
 end

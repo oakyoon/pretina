@@ -9,7 +9,7 @@ function anglemat = xy2angle(varargin)
 %      BX - matrix containing x-values of the monitor coordinate.
 %      BY - matrix containing y-values of the monitor coordinate.
 %
-%   See also BASE_XY.
+%   See also ANGLE2XY, WRAP_ANGLE, BASE_XY.
 
 	bx = parse_arg(varargin, 1, mfilename, 'bx', [], {'numeric'}, {'real', 'finite', 'nonnan'});
 	by = parse_arg(varargin, 2, mfilename, 'by', [], {'numeric'}, {'real', 'finite', 'nonnan', 'size', size(bx)});

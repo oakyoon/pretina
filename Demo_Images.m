@@ -58,13 +58,12 @@ imshow(hsv2rgb(hsv_image));
 
 % common matrix for grating and Gabor
 grating_mat = mk_grating(map_linear(200, 300, 60), 5/200);
-background = ones(200, 300) * .5;
 % elongated sine grating
 subplot(demo_rows, demo_cols, 19);
 elongated_mask = mk_shape(map_radial(200, 300, 2, -30), 75);
-imshow(apply_alpha(background, grating_mat, elongated_mask));
+imshow(apply_alpha([], grating_mat, elongated_mask));
 
 % elongated Gabor
 subplot(demo_rows, demo_cols, 20);
 elongated_gaussian = mk_gaussian(map_radial(200, 300, 2, -30), 20);
-imshow(apply_alpha(background, grating_mat, elongated_gaussian));
+imshow(apply_alpha([], grating_mat, elongated_gaussian));

@@ -17,8 +17,8 @@ function [coords, voidmap, n] = random_coords(varargin)
 %   See also DEMO_RANDOMCOORDS_GAUSSIAN, DEMO_RANDOMCOORDS_CIRCLES,
 %   DEMO_RANDOMCOORDS_RECTS.
 
-	mask     = parse_arg(varargin, 1, mfilename, 'mask',     [], {'numeric'}, {'nonempty', 'real', 'finite', 'nonnan', '2d'});
-	params   = parse_arg(varargin, 2, mfilename, 'params',   [], {'numeric'}, {'nonempty', '2d'});
+	mask     = parse_arg(varargin, 1, mfilename, 'mask',     [], {'numeric'},           {'nonempty', 'real', 'finite', 'nonnan', '2d'});
+	params   = parse_arg(varargin, 2, mfilename, 'params',   [], {'numeric', 'struct'}, {'nonempty', '2d'});
 	postfunc = parse_arg(varargin, 3, mfilename, 'postfunc', @(m, p, mx, my) m .* (1 - (mx == 0) .* (my == 0)), {'function_handle'}, { });
 	prefunc  = parse_arg(varargin, 4, mfilename, 'prefunc',  @(m, p) m,                                         {'function_handle'}, { });
 

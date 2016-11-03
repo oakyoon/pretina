@@ -26,6 +26,6 @@ function appliedmap = apply_alpha(varargin)
 		validateattributes(groundmap, {'numeric'}, {'size', size(pixelmap)}, mfilename, 'groundmap', 1);
 	end
 
-	alphamap = repmat(alphamap, 1, 1, size(pixelmap, 3));
+	alphamap = repmat(alphamap, [1, 1, size(pixelmap, 3)]);
 	appliedmap = (pixelmap .* alphamap) + (groundmap .* (1 - alphamap));
 end

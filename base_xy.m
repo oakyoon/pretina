@@ -1,20 +1,21 @@
 function [bx, by] = base_xy(varargin)
 %BASE_XY Generates maps of x- and y-values in the monitor coordinate.
 %
-%   [BX, BY] = BASE_XY(X [,Y] [,TILT]) returns Y-by-X matrices, whose elements
-%   contain x- and y-values in the monitor coordinate tilted by TILT degrees.
-%   The value is set to 0 at the center of both matrices.
+%   [BX, BY] = BASE_XY(X [,Y] [,TILT]) returns Y-by-X matrices, each containing
+%   x- and y-values in the monitor coordinate tilted TILT degrees away from the
+%   vertical meridian. X- and y-values are set to 0 at the center of both
+%   output matrices, BX and BY.
 %
 %   Arguments:
-%      X    - number of columns of output matrices.
+%      X    - number of columns of the output matrices.
 %      Y    - number of rows, the same as X if empty or not provided.
 %      TILT - tilt angle of the x- and y-axes, 0 if empty or not provided.
 %
 %   See also MESHGRID, ROTATE_XY.
 
-	x    = parse_arg(varargin, 1, mfilename, 'x',    [], {'numeric'}, {'scalar', 'integer', 'finite', 'positive'});
-	y    = parse_arg(varargin, 2, mfilename, 'y',    x,  {'numeric'}, {'scalar', 'integer', 'finite', 'positive'});
-	tilt = parse_arg(varargin, 3, mfilename, 'tilt', 0,  {'numeric'}, {'scalar', 'real', 'finite', 'nonnan'});
+	x    = pretina_arg(varargin, 1, mfilename, 'x',    [], {'numeric'}, {'scalar', 'integer', 'finite', 'positive'});
+	y    = pretina_arg(varargin, 2, mfilename, 'y',    x,  {'numeric'}, {'scalar', 'integer', 'finite', 'positive'});
+	tilt = pretina_arg(varargin, 3, mfilename, 'tilt', 0,  {'numeric'}, {'scalar', 'real', 'finite', 'nonnan'});
 
 	[mx, my] = meshgrid( ...
 		(1:x) - (1 + x) / 2, ...

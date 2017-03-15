@@ -1,10 +1,9 @@
 function voidmap = prefunc_oval(voidmap, params)
-%PREFUNC_OVAL Shrinks a void map for a new ellipse placement when being used in
-%coordination with RANDOM_COORDS function.
+%PREFUNC_OVAL Adds margins around occupied area for placing an oval shape.
 %
 %   See also RANDOM_COORDS, DEMO_RANDOMCOORDS_CIRCLES.
 
-	[radius, ratio, tilt] = parse_params(params, [], 1, 0);
+	[radius, ratio, tilt] = pretina_params(params, [], 1, 0);
 
 	kernel_oval = mk_shape( ...
 		map_radial( ...

@@ -1,10 +1,9 @@
 function voidmap = prefunc_rect(voidmap, params)
-%PREFUNC_RECT Shrinks a void map for a new rectangle placement when being used
-%in coordination with RANDOM_COORDS function.
+%PREFUNC_RECT Adds margins around occupied area for placing a rectangle shape.
 %
 %   See also RANDOM_COORDS, DEMO_RANDOMCOORDS_RECTS.
 
-	[radius, ratio, tilt] = parse_params(params, [], 1, 0);
+	[radius, ratio, tilt] = pretina_params(params, [], 1, 0);
 
 	kernel_rect = mk_shape( ...
 		map_rectangular( ...

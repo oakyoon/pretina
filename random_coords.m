@@ -1,26 +1,31 @@
 function [coords, voidmap, n] = random_coords(varargin)
-%RANDOM_COORDS Selects random x, y coordinate pairs a map.
+%RANDOM_COORDS Places given shapes on random locations.
 %
 %   [COORDS, VOIDMAP, N] = RANDOM_COORDS(MASK, PARAMS [,POSTFUNC] [,PREFUNC])
-%   returns a coordinate pair matrix (COORDS, the same number of rows as
-%   PARAMS), a map of void space (VOIDMAP, the same size as MASK), and the
-%   number of successful placements (N). The coordinates are centered at the
-%   center of the MASK. If there is not enough space left, remaining coordinate
-%   pairs will be filled with 0, 0.
+%   returns a 2-column matrix containing the center coordinates of shapes
+%   (COORDS), a matrix with the the same size as MASK representing unoccupied
+%   area after the placements (VOIDMAP), and the number of successfully placed
+%   shapes (N). This function tries to place given shapes to the area marked
+%   with 1 in MASK. If some of the shapes cannnot be placed, their coordinates
+%   will be [0, 0] in COORDS. The starting point of the coordinates is the
+%   center of the MASK.
 %
 %   Arguments:
-%      MASK     - area mask, forbids placement in the pixel marked with 0.
-%      PARAMS   - parameters given to POSTFUNC and PREFUNC.
-%      POSTFUNC - function handle, marks an element into VOIDMAP.
-%      PREFUNC  - function handle, shrinks VOIDMAP before the element placement.
+%      MASK     - an area mask. Shapes will be placed in area marked with 1.
+%      PARAMS   - shape parameters, each row of which will be used as the second
+%         argument of the PREFUNC and POSTFUNC.
+%      POSTFUNC - a function handle. This function marks occupied area to the
+%         VOIDMAP after placing each shape.
+%      PREFUNC  - a function handle. This function adds margins around the
+%         occupied area in the VOIDMAP before placing each shape.
 %
 %   See also DEMO_RANDOMCOORDS_GAUSSIAN, DEMO_RANDOMCOORDS_CIRCLES,
 %   DEMO_RANDOMCOORDS_RECTS.
 
-	mask     = parse_arg(varargin, 1, mfilename, 'mask',     [], {'numeric'},           {'nonempty', 'real', 'finite', 'nonnan', '2d'});
-	params   = parse_arg(varargin, 2, mfilename, 'params',   [], {'numeric', 'struct'}, {'nonempty', '2d'});
-	postfunc = parse_arg(varargin, 3, mfilename, 'postfunc', @(m, p, mx, my) m .* (1 - (mx == 0) .* (my == 0)), {'function_handle'}, { });
-	prefunc  = parse_arg(varargin, 4, mfilename, 'prefunc',  @(m, p) m,                                         {'function_handle'}, { });
+	mask     = pretina_arg(varargin, 1, mfilename, 'mask',     [],        {'numeric'},           {'nonempty', 'real', 'finite', 'nonnan', '2d'});
+	params   = pretina_arg(varargin, 2, mfilename, 'params',   [],        {'numeric', 'struct'}, {'nonempty', '2d'});
+	postfunc = pretina_arg(varargin, 3, mfilename, 'postfunc', [],        {'function_handle'},   { });
+	prefunc  = pretina_arg(varargin, 4, mfilename, 'prefunc',  @(m, p) m, {'function_handle'},   { });
 
 	n_coords = size(params, 1);
 	[mask_h, mask_w] = size(mask);

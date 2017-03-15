@@ -1,4 +1,4 @@
-%DEMO_IMAGES Demonstrates how to use image functions.
+%DEMO_IMAGES Shows examples on how to use image functions.
 %
 %   See <a href="matlab:edit Demo_Images;">source code</a> for details.
 
@@ -45,25 +45,24 @@ imshow(mk_shape(map_pivotal(200, 300, 180 - 45), 90));
 subplot(demo_rows, demo_cols, 16);
 imshow(mk_grating(map_pivotal(200, 300), 8/360));
 
-% ring
+% application (1): ring
 subplot(demo_rows, demo_cols, 17);
 ring_mat = mk_shape(map_radial(200), 90) ...
 	.* (1 - mk_shape(map_radial(200), 70));
 imshow(ring_mat);
 
-% HSV color wheel
+% application (2): HSV color wheel
 subplot(demo_rows, demo_cols, 18);
 hsv_image = cat(3, map_pivotal(200) / 360, ring_mat, ring_mat);
 imshow(hsv2rgb(hsv_image));
 
-% common matrix for grating and Gabor
+% application (3): elongated sine grating
 grating_mat = mk_grating(map_linear(200, 300, 60), 5/200);
-% elongated sine grating
 subplot(demo_rows, demo_cols, 19);
 elongated_mask = mk_shape(map_radial(200, 300, 2, -30), 75);
-imshow(apply_alpha([], grating_mat, elongated_mask));
+imshow(apply_alpha(.5, grating_mat, elongated_mask));
 
-% elongated Gabor
+% application (4): elongated Gabor
 subplot(demo_rows, demo_cols, 20);
 elongated_gaussian = mk_gaussian(map_radial(200, 300, 2, -30), 20);
-imshow(apply_alpha([], grating_mat, elongated_gaussian));
+imshow(apply_alpha(.5, grating_mat, elongated_gaussian));

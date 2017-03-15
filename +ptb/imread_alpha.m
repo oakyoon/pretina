@@ -1,6 +1,7 @@
 function image = imread_alpha(varargin)
-%IMREAD_ALPHA Wraps a MATLAB function IMREAD, and adds an alpha channel below
-%the image layers if there is one. Arguments are the same as IMREAD.
+%IMREAD_ALPHA Wraps a MATLAB function IMREAD and adds an alpha channel at the
+%bottom of the image matrix, if it is from a compatible image type such as PNG.
+%Arguments are the same as IMREAD.
 %
 %   See also IMREAD.
 

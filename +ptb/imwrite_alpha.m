@@ -5,7 +5,7 @@ function imwrite_alpha(varargin)
 %
 %   See also IMWRITE.
 
-	A  = pretina_arg(varargin, 1, mfilename, 'A', [], {'numeric'}, {'nonempty', 'real', 'finite', 'nonnan'});
+	A = pretina_arg(varargin, 1, mfilename, 'A', [], {'numeric'}, {'nonempty', 'real', 'finite', 'nonnan'});
 	if any(size(A, 3) == [2, 4])
 		imwrite(A(:, :, 1:(end - 1)), varargin{2:end}, 'Alpha', A(:, :, end));
 	else

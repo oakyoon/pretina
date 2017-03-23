@@ -3,7 +3,7 @@ function gratingmat = cgrating_blended(varargin)
 %sinusoidal grating blended to the background color.
 %
 %   Example:
-%      <a href="matlab:imshow(ptb.cgrating_blended(400, [], [], [], [], .01, [], 45, 120) / 255);">imshow(ptb.cgrating_blended(400, [], [], [], [], .01, [], 45, 120) / 255);</a>
+%      <a href="matlab:ptb.imshow_alpha(ptb.cgrating_blended(400, [], [], [], [], .01, [], 45, 120));">ptb.imshow_alpha(ptb.cgrating_blended(400, [], [], [], [], .01, [], 45, 120));</a>
 %
 %   See also CGRATING_ALPHA, GRATING_ALPHA, GRATING_BLENDED.
 

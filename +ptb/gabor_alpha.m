@@ -2,6 +2,9 @@ function gabormat = gabor_alpha(varargin)
 %GABOR_ALPHA Generates a 2-layer matrix (luminance and alpha) containing a
 %grayscale Gabor patch.
 %
+%   Example:
+%      <a href="matlab:ptb.imshow_alpha(ptb.gabor_alpha(400, [], [], [], .01, [], 45, 25));">ptb.imshow_alpha(ptb.gabor_alpha(400, [], [], [], .01, [], 45, 25));</a>
+%
 %   See also GABOR_BLENDED, CGABOR_ALPHA, CGABOR_BLENDED.
 
 	rows       = pretina_arg(varargin, 1,  mfilename, 'rows',       [],    {'numeric'}, {'scalar', 'integer', 'finite', 'positive'});

@@ -2,6 +2,9 @@ function gratingmat = grating_alpha(varargin)
 %GRATING_ALPHA Generates a 2-layer matrix (luminance and alpha) containing a
 %grayscale sinusoidal grating.
 %
+%   Example:
+%      <a href="matlab:ptb.imshow_alpha(ptb.grating_alpha(400, [], [], [], .01, [], 45, 120));">ptb.imshow_alpha(ptb.grating_alpha(400, [], [], [], .01, [], 45, 120));</a>
+%
 %   See also GRATING_BLENDED, CGRATING_ALPHA, CGRATING_BLENDED.
 
 	rows       = pretina_arg(varargin, 1,  mfilename, 'rows',       [],    {'numeric'}, {'scalar', 'integer', 'finite', 'positive'});

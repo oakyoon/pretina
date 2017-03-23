@@ -3,7 +3,7 @@ function gabormat = cgabor_blended(varargin)
 %patch blended to the background color.
 %
 %   Example:
-%      <a href="matlab:imshow(ptb.cgabor_blended(400, [], [], [], [], .01, [], 45, 25) / 255);">imshow(ptb.cgabor_blended(400, [], [], [], [], .01, [], 45, 25) / 255);</a>
+%      <a href="matlab:ptb.imshow_alpha(ptb.cgabor_blended(400, [], [], [], [], .01, [], 45, 25));">ptb.imshow_alpha(ptb.cgabor_blended(400, [], [], [], [], .01, [], 45, 25));</a>
 %
 %   See also CGABOR_ALPHA, GABOR_ALPHA, GABOR_BLENDED.
 

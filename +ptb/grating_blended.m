@@ -3,7 +3,7 @@ function gratingmat = grating_blended(varargin)
 %blended to the background luminance.
 %
 %   Example:
-%      <a href="matlab:imshow(ptb.grating_blended(400, [], [], [], .01, [], 45, 120) / 255);">imshow(ptb.grating_blended(400, [], [], [], .01, [], 45, 120) / 255);</a>
+%      <a href="matlab:ptb.imshow_alpha(ptb.grating_blended(400, [], [], [], .01, [], 45, 120));">ptb.imshow_alpha(ptb.grating_blended(400, [], [], [], .01, [], 45, 120));</a>
 %
 %   See also GRATING_ALPHA, CGRATING_ALPHA, CGRATING_BLENDED.
 

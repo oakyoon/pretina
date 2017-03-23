@@ -3,7 +3,7 @@ function gabormat = gabor_blended(varargin)
 %background luminance.
 %
 %   Example:
-%      <a href="matlab:imshow(ptb.gabor_blended(400, [], [], [], .01, [], 45, 25) / 255);">imshow(ptb.gabor_blended(400, [], [], [], .01, [], 45, 25) / 255);</a>
+%      <a href="matlab:ptb.imshow_alpha(ptb.gabor_blended(400, [], [], [], .01, [], 45, 25));">ptb.imshow_alpha(ptb.gabor_blended(400, [], [], [], .01, [], 45, 25));</a>
 %
 %   See also GABOR_ALPHA, CGABOR_ALPHA, CGABOR_BLENDED.
 

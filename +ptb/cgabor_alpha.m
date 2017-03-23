@@ -2,6 +2,9 @@ function gabormat = cgabor_alpha(varargin)
 %CGABOR_ALPHA Generates a 4-layer matrix (RGB and alpha) containing a chromatic
 %Gabor patch.
 %
+%   Example:
+%      <a href="matlab:ptb.imshow_alpha(ptb.cgabor_alpha(400, [], [], [], .01, [], 45, 25));">ptb.imshow_alpha(ptb.cgabor_alpha(400, [], [], [], .01, [], 45, 25));</a>
+%
 %   See also CGABOR_BLENDED, GABOR_ALPHA, GABOR_BLENDED.
 
 	rows       = pretina_arg(varargin, 1,  mfilename, 'rows',       [],        {'numeric'}, {'scalar', 'integer', 'finite', 'positive'});

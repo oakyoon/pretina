@@ -3,7 +3,7 @@ function voidmap = postfunc_polygon(voidmap, params, mx, my)
 %
 %   See also RANDOM_COORDS, DEMO_RANDOMCOORDS_POLYGONS.
 
-	[radius, sides, tilt] = pretina_params(params, [], 1, 0);
+	[radius, sides, tilt] = pretina_params(params, [], 3, 0);
 
 	angles = linspace(0, 360, sides + 1);
 	angles = angles(angles < 360) + tilt;
